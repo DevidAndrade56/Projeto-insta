@@ -1,6 +1,14 @@
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="Usuario")
 public class Conta {
+	@Id
+	@GeneratedValue
 	private int id_CO;
 	private String nome_ident;
 	private ArrayList<Postagens> postagens;

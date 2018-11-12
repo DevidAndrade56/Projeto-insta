@@ -1,5 +1,9 @@
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Direct {
+	@Id
 	private int id_dir;
 	private String texto;
 	private Perfil perfil;

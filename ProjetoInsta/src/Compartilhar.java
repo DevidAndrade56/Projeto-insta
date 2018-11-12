@@ -1,5 +1,11 @@
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="Compartilhar")
 public class Compartilhar {
+	@Id
 	private int ID_COM;
 	private String fotos;
 	private String musicas;

@@ -1,18 +1,21 @@
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 @Entity
-@Table(name="Usuario")
 public class Usuario {
 	@Id
+	@GeneratedValue
 	private int id;
 	private String nome;
 	@ManyToMany
+	@JoinColumn(name="id_A")
 	private ArrayList<Arquivos> arquivos;
 	@ManyToMany
+	@JoinColumn(name="ID_H")
 	private ArrayList<Historia> historias;
 	
 	private Conta conta;
