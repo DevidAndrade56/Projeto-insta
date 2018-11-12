@@ -6,7 +6,9 @@ public class Direct {
 	@Id
 	private int id_dir;
 	private String texto;
+	
 	private Perfil perfil;
+	
 	private Compartilhar arquivos;
 
 	public int getId_dir() {

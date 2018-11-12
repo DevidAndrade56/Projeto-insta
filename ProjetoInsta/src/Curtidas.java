@@ -7,7 +7,9 @@ import javax.persistence.Table;
 public class Curtidas {
 	@Id
 	private int id_c;
+	
 	private Postagens postagens;
+	
 	private Comentarios comentarios;
 
 	public int getId_c() {

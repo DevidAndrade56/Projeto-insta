@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 @Entity
 public class Usuario {
@@ -12,7 +13,7 @@ public class Usuario {
 	private int id;
 	private String nome;
 	@ManyToMany
-	@JoinColumn(name="id_A")
+	@JoinTable(name="usuario_arquivos")
 	private ArrayList<Arquivos> arquivos;
 	@ManyToMany
 	@JoinColumn(name="ID_H")

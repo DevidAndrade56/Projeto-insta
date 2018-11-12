@@ -8,8 +8,10 @@ public class Historia {
 	@GeneratedValue
 	private int ID_H;
 	private String titulo;
+	
 	private Usuario usuario;
 	private String respostas;
+	
 	private Arquivos arquivos;
 
 	@Override

@@ -11,8 +11,10 @@ public class Conta {
 	@GeneratedValue
 	private int id_CO;
 	private String nome_ident;
+	
 	private ArrayList<Postagens> postagens;
 	private String sobre;
+	
 	private Perfil perfil;
 
 	public int getId_CO() {
