@@ -1,8 +1,17 @@
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name="Postagens")
 public class Postagens {
+	@Id
 	private int ID_PO;
+	@ManyToMany
 	private ArrayList<Comentarios> comentarios;
+	@ManyToMany
 	private ArrayList<Curtidas> curtidas;
 	private String fotos;
 	private String musicas;

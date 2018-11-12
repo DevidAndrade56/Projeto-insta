@@ -1,12 +1,21 @@
+import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Curtidas")
 public class Arquivos {
+	@Id
 	private int id_A;
 	private String fotos;
 	private String musicas;
 	private String textos;
 	private String videos;
 	private String titulo;
-	private Usuario usuario;
+	
+	private ArrayList<Usuario> usuario;
 
 	public int getId_A() {
 		return id_A;
@@ -62,11 +71,11 @@ public class Arquivos {
 		this.titulo = titulo;
 	}
 
-	public Usuario getUsuario() {
+	public ArrayList<Usuario> getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(ArrayList<Usuario> usuario) {
 		this.usuario = usuario;
 	}
 

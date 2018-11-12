@@ -1,14 +1,11 @@
 import java.util.ArrayList;
 
 public interface IFInstagram {
-	public Arquivos arquivos(int id_A, String fotos, String musicas, String textos, String videos, String titulo,
-			Usuario usuario);
+	public Arquivos arquivos(int id_A, String fotos, String musicas, String textos, String videos, String titulo, Usuario usuario);
 
-	public Comentarios comentar(int id_co, String texto, ArrayList<Curtidas> curtida,
-			ArrayList<Compartilhar> compartilhar);
+	public Comentarios comentar(int id_co, String texto, ArrayList<Curtidas> curtida, ArrayList<Compartilhar> compartilhar);
 
-	public Compartilhar compartilhar(int ID_COM, String fotos, String musicas, String textos, String videos,
-			String titulo);
+	public Compartilhar compartilhar(int ID_COM, String fotos, String musicas, String textos, String videos, String titulo);
 
 	public Conta conta(int id_CO, String nome_ident, ArrayList<Postagens> postagens, String sobre, Perfil perfil);
 

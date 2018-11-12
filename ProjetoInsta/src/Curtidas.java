@@ -1,5 +1,11 @@
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="Curtidas")
 public class Curtidas {
+	@Id
 	private int id_c;
 	private Postagens postagens;
 	private Comentarios comentarios;

@@ -1,9 +1,19 @@
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Comentarios")
 public class Comentarios {
+	@Id
 	private int id_co;
 	private String texto;
+	@ManyToMany
 	private ArrayList<Curtidas> curtida;
+	@ManyToMany
 	private ArrayList<Compartilhar> compartilhar;
 
 	public int getId_co() {

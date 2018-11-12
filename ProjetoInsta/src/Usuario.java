@@ -1,15 +1,28 @@
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name="Usuario")
 public class Usuario {
-	
+	@Id
 	private int id;
 	private String nome;
+	@ManyToMany
 	private ArrayList<Arquivos> arquivos;
+	@ManyToMany
 	private ArrayList<Historia> historias;
+	
 	private Conta conta;
+	
 	private Perfil perfil;
+	
 	private Postagens postagens;
+	
 	private Comentarios comentarios;
+	
 	private Curtidas curtidas;
 
 	public int getId() {
