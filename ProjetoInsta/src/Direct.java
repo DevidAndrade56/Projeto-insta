@@ -1,14 +1,15 @@
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Direct {
 	@Id
+	@GeneratedValue
 	private int id_dir;
 	private String texto;
-	
-	private Perfil perfil;
-	
+	@OneToOne
 	private Compartilhar arquivos;
 
 	public int getId_dir() {
@@ -26,14 +27,7 @@ public class Direct {
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
-
-	public Perfil getPerfil() {
-		return perfil;
-	}
-
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
+	
 
 	public Compartilhar getCompartilhar() {
 		return arquivos;
@@ -45,7 +39,7 @@ public class Direct {
 
 	@Override
 	public String toString() {
-		return "Direct [id_dir=" + id_dir + ", texto=" + texto + ", perfil=" + perfil + ", arquivos=" + arquivos + "]";
+		return "Direct [id_dir=" + id_dir + ", texto=" + texto + ", arquivos=" + arquivos + "]";
 	}
 
 }

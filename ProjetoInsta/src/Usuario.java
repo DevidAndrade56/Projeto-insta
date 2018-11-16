@@ -4,8 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
 @Entity
 public class Usuario {
 	@Id
@@ -13,20 +14,13 @@ public class Usuario {
 	private int id;
 	private String nome;
 	@ManyToMany
-	@JoinTable(name="usuario_arquivos")
-	private ArrayList<Arquivos> arquivos;
-	@ManyToMany
-	@JoinColumn(name="ID_H")
+	@JoinColumn(name = "ID_H")
 	private ArrayList<Historia> historias;
-	
-	private Conta conta;
-	
-	private Perfil perfil;
-	
+	@OneToMany
 	private Postagens postagens;
-	
+	@OneToMany
 	private Comentarios comentarios;
-	
+	@OneToMany
 	private Curtidas curtidas;
 
 	public int getId() {
@@ -53,22 +47,6 @@ public class Usuario {
 		this.historias = historias;
 	}
 
-	public Conta getConta() {
-		return conta;
-	}
-
-	public void setConta(Conta conta) {
-		this.conta = conta;
-	}
-
-	public Perfil getPerfil() {
-		return perfil;
-	}
-
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
-
 	public Postagens getPostagens() {
 		return postagens;
 	}
@@ -93,19 +71,20 @@ public class Usuario {
 		this.curtidas = curtidas;
 	}
 
-	@Override
+	public Usuario(int id, String nome, ArrayList<Historia> historias,
+			Postagens postagens, Comentarios comentarios, Curtidas curtidas) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.historias = historias;
+		this.postagens = postagens;
+		this.comentarios = comentarios;
+		this.curtidas = curtidas;
+	}
+
 	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", arquivos=" + arquivos + ", historias=" + historias
-				+ ", conta=" + conta + ", perfil=" + perfil + ", postagens=" + postagens + ", comentarios="
-				+ comentarios + ", curtidas=" + curtidas + "]";
-	}
-
-	public ArrayList<Arquivos> getArquivos() {
-		return arquivos;
-	}
-
-	public void setArquivos(ArrayList<Arquivos> arquivos) {
-		this.arquivos = arquivos;
+		return "Usuario [id=" + id + ", nome=" + nome + " historias=" + historias
+				+ ", postagens=" + postagens + ", comentarios=" + comentarios + ", curtidas=" + curtidas + "]";
 	}
 
 }

@@ -1,17 +1,22 @@
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="Postagens")
 public class Postagens {
 	@Id
+	@GeneratedValue
 	private int ID_PO;
 	@ManyToMany
+	@JoinColumn(name="id_co")
 	private ArrayList<Comentarios> comentarios;
 	@ManyToMany
+	@JoinColumn(name="id_c")
 	private ArrayList<Curtidas> curtidas;
 	private String fotos;
 	private String musicas;

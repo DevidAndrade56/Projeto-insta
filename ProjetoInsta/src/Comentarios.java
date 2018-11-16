@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -9,12 +11,12 @@ import javax.persistence.Table;
 @Table(name="Comentarios")
 public class Comentarios {
 	@Id
+	@GeneratedValue
 	private int id_co;
 	private String texto;
 	@ManyToMany
+	@JoinTable(name="usuario_curtida")
 	private ArrayList<Curtidas> curtida;
-	@ManyToMany
-	private ArrayList<Compartilhar> compartilhar;
 
 	public int getId_co() {
 		return id_co;
@@ -42,16 +44,13 @@ public class Comentarios {
 
 	@Override
 	public String toString() {
-		return "Comentarios [id_co=" + id_co + ", texto=" + texto + ", curtida=" + curtida + ", compartilhar="
-				+ compartilhar + "]";
+		return "Comentarios [id_co=" + id_co + ", texto=" + texto + ", curtida=" + curtida + "]";
 	}
 
-	public ArrayList<Compartilhar> getCompartilhar() {
-		return compartilhar;
-	}
+	
+	
 
-	public void setCompartilhar(ArrayList<Compartilhar> compartilhar) {
-		this.compartilhar = compartilhar;
-	}
+	
+	
 
 }

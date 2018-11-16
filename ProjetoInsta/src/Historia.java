@@ -1,6 +1,7 @@
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Historia {
@@ -8,16 +9,14 @@ public class Historia {
 	@GeneratedValue
 	private int ID_H;
 	private String titulo;
-	
+	@OneToMany
 	private Usuario usuario;
 	private String respostas;
 	
-	private Arquivos arquivos;
-
 	@Override
 	public String toString() {
 		return "Historia [ID_H=" + ID_H + ", titulo=" + titulo + ", usuario=" + usuario + ", respostas=" + respostas
-				+ ", arquivos=" + arquivos + "]";
+				+  "]";
 	}
 
 	public int getID_H() {
@@ -52,12 +51,6 @@ public class Historia {
 		this.respostas = respostas;
 	}
 
-	public Arquivos getArquivos() {
-		return arquivos;
-	}
-
-	public void setArquivos(Arquivos arquivos) {
-		this.arquivos = arquivos;
-	}
+	
 
 }

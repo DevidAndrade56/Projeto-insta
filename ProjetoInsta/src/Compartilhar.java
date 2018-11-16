@@ -1,4 +1,5 @@
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -6,6 +7,7 @@ import javax.persistence.Table;
 @Table(name="Compartilhar")
 public class Compartilhar {
 	@Id
+	@GeneratedValue
 	private int ID_COM;
 	private String fotos;
 	private String musicas;

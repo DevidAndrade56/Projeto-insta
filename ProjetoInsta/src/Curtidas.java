@@ -1,15 +1,18 @@
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Curtidas")
 public class Curtidas {
 	@Id
+	@GeneratedValue
 	private int id_c;
-	
+	@ManyToOne
 	private Postagens postagens;
-	
+	@ManyToOne
 	private Comentarios comentarios;
 
 	public int getId_c() {
