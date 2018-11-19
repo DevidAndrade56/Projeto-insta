@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -14,14 +16,16 @@ public class Usuario {
 	private int id;
 	private String nome;
 	@ManyToMany
-	@JoinColumn(name = "ID_H")
+	@JoinTable(name="usuario_historias",
+	joinColumns = @JoinColumn(name="id"),
+	inverseJoinColumns = @JoinColumn(name="ID_H"))
 	private ArrayList<Historia> historias;
 	@OneToMany
-	private Postagens postagens;
+	private Set<Postagens> postagens;
 	@OneToMany
-	private Comentarios comentarios;
+	private Set<Comentarios> comentarios;
 	@OneToMany
-	private Curtidas curtidas;
+	private Set<Curtidas> curtidas;
 
 	public int getId() {
 		return id;
@@ -47,39 +51,40 @@ public class Usuario {
 		this.historias = historias;
 	}
 
-	public Postagens getPostagens() {
+	public Set<Postagens> getPostagens() {
 		return postagens;
 	}
 
-	public void setPostagens(Postagens postagens) {
+	public void setPostagens(Set<Postagens> postagens) {
 		this.postagens = postagens;
 	}
 
-	public Comentarios getComentarios() {
+	public Set<Comentarios> getComentarios() {
 		return comentarios;
 	}
 
-	public void setComentarios(Comentarios comentarios) {
+	public void setComentarios(Set<Comentarios> comentarios) {
 		this.comentarios = comentarios;
 	}
 
-	public Curtidas getCurtidas() {
+	public Set<Curtidas> getCurtidas() {
 		return curtidas;
 	}
 
-	public void setCurtidas(Curtidas curtidas) {
+	public void setCurtidas(Set<Curtidas> curtidas) {
 		this.curtidas = curtidas;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Usuario(int id, String nome, ArrayList<Historia> historias,
 			Postagens postagens, Comentarios comentarios, Curtidas curtidas) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.historias = historias;
-		this.postagens = postagens;
-		this.comentarios = comentarios;
-		this.curtidas = curtidas;
+		this.postagens = (Set<Postagens>) postagens;
+		this.comentarios = (Set<Comentarios>) comentarios;
+		this.curtidas = (Set<Curtidas>) curtidas;
 	}
 
 	public String toString() {

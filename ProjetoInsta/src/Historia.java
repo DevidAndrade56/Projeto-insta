@@ -1,3 +1,5 @@
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +12,7 @@ public class Historia {
 	private int ID_H;
 	private String titulo;
 	@OneToMany
-	private Usuario usuario;
+	private Set<Usuario> usuario;
 	private String respostas;
 	
 	@Override
@@ -35,11 +37,11 @@ public class Historia {
 		this.titulo = titulo;
 	}
 
-	public Usuario getUsuario() {
+	public Set<Usuario> getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(Set<Usuario> usuario) {
 		this.usuario = usuario;
 	}
 

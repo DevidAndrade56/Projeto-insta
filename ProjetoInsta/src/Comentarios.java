@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -15,7 +16,9 @@ public class Comentarios {
 	private int id_co;
 	private String texto;
 	@ManyToMany
-	@JoinTable(name="usuario_curtida")
+	@JoinTable(name="curtidas_usuarios",
+	joinColumns = @JoinColumn(name="id"),
+	inverseJoinColumns = @JoinColumn(name="id_c"))
 	private ArrayList<Curtidas> curtida;
 
 	public int getId_co() {

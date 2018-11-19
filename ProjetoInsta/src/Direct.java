@@ -1,3 +1,5 @@
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +12,7 @@ public class Direct {
 	private int id_dir;
 	private String texto;
 	@OneToOne
-	private Compartilhar arquivos;
+	private Set<Compartilhar> arquivos;
 
 	public int getId_dir() {
 		return id_dir;
@@ -29,11 +31,11 @@ public class Direct {
 	}
 	
 
-	public Compartilhar getCompartilhar() {
+	public Set<Compartilhar> getCompartilhar() {
 		return arquivos;
 	}
 
-	public void setCompartilhar(Compartilhar compartilhar) {
+	public void setCompartilhar(Set<Compartilhar> compartilhar) {
 		this.arquivos = compartilhar;
 	}
 

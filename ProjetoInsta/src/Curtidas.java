@@ -1,3 +1,5 @@
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,9 +13,9 @@ public class Curtidas {
 	@GeneratedValue
 	private int id_c;
 	@ManyToOne
-	private Postagens postagens;
+	private Set<Postagens> postagens;
 	@ManyToOne
-	private Comentarios comentarios;
+	private Set<Comentarios> comentarios;
 
 	public int getId_c() {
 		return id_c;
@@ -23,19 +25,19 @@ public class Curtidas {
 		this.id_c = id_c;
 	}
 
-	public Postagens getPostagens() {
+	public Set<Postagens> getPostagens() {
 		return postagens;
 	}
 
-	public void setPostagens(Postagens postagens) {
+	public void setPostagens(Set<Postagens> postagens) {
 		this.postagens = postagens;
 	}
 
-	public Comentarios getComentarios() {
+	public Set<Comentarios> getComentarios() {
 		return comentarios;
 	}
 
-	public void setComentarios(Comentarios comentarios) {
+	public void setComentarios(Set<Comentarios> comentarios) {
 		this.comentarios = comentarios;
 	}
 

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 @Entity
@@ -13,10 +14,14 @@ public class Postagens {
 	@GeneratedValue
 	private int ID_PO;
 	@ManyToMany
-	@JoinColumn(name="id_co")
+	@JoinTable(name="usuario_comentarios",
+	joinColumns = @JoinColumn(name="id"),
+	inverseJoinColumns = @JoinColumn(name="id_co"))
 	private ArrayList<Comentarios> comentarios;
 	@ManyToMany
-	@JoinColumn(name="id_c")
+	@JoinTable(name="curtidas_usuarios",
+	joinColumns = @JoinColumn(name="id"),
+	inverseJoinColumns = @JoinColumn(name="id_c"))
 	private ArrayList<Curtidas> curtidas;
 	private String fotos;
 	private String musicas;
