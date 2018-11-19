@@ -21,10 +21,13 @@ public class Usuario {
 	inverseJoinColumns = @JoinColumn(name="ID_H"))
 	private ArrayList<Historia> historias;
 	@OneToMany
+	@JoinColumn(name="ID_PO")
 	private Set<Postagens> postagens;
 	@OneToMany
+	@JoinColumn(name="id_co")
 	private Set<Comentarios> comentarios;
 	@OneToMany
+	@JoinColumn(name="id_c")
 	private Set<Curtidas> curtidas;
 
 	public int getId() {
