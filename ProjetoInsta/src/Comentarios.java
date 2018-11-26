@@ -50,10 +50,12 @@ public class Comentarios {
 		return "Comentarios [id_co=" + id_co + ", texto=" + texto + ", curtida=" + curtida + "]";
 	}
 
-	
-	
+	public Comentarios(int id_co, String texto, ArrayList<Curtidas> curtida) {
+		super();
+		this.id_co = id_co;
+		this.texto = texto;
+		this.curtida = curtida;
+	}
 
-	
-	
 
 }

@@ -90,6 +90,10 @@ public class Usuario {
 		this.curtidas = (Set<Curtidas>) curtidas;
 	}
 
+	public Usuario() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + " historias=" + historias
 				+ ", postagens=" + postagens + ", comentarios=" + comentarios + ", curtidas=" + curtidas + "]";

@@ -3,6 +3,7 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -13,8 +14,10 @@ public class Curtidas {
 	@GeneratedValue
 	private int id_c;
 	@ManyToOne
+	@JoinColumn(name="ID_PO")
 	private Set<Postagens> postagens;
 	@ManyToOne
+	@JoinColumn(name="id_co")
 	private Set<Comentarios> comentarios;
 
 	public int getId_c() {
