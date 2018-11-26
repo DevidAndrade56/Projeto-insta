@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,37 +6,28 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 @Entity
-@Table(name="Postagens")
 public class Postagens {
 	@Id
 	@GeneratedValue
-	private int ID_PO;
+	private Long ID_PO;
 	@ManyToMany
 	@JoinTable(name="usuario_comentarios",
 	joinColumns = @JoinColumn(name="id"),
 	inverseJoinColumns = @JoinColumn(name="id_co"))
-	private ArrayList<Comentarios> comentarios;
+	private Set<Comentarios> comentarios;
 	@ManyToMany
 	@JoinTable(name="curtidas_usuarios",
 	joinColumns = @JoinColumn(name="id"),
 	inverseJoinColumns = @JoinColumn(name="id_c"))
-	private ArrayList<Curtidas> curtidas;
+	private Set<Curtidas> curtidas;
 	private String fotos;
 	private String musicas;
 	private String textos;
 	private String videos;
 	private String titulo;
 
-	public int getID_PO() {
-		return ID_PO;
-	}
-
-	public void setID_PO(int iD_PO) {
-		ID_PO = iD_PO;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Postagens [ID_PO=" + ID_PO + ", comentarios=" + comentarios + ", curtidas=" + curtidas + ", fotos="
@@ -44,19 +35,21 @@ public class Postagens {
 				+ "]";
 	}
 
-	public ArrayList<Comentarios> getComentarios() {
+	public Set<Comentarios> getComentarios() {
 		return comentarios;
 	}
 
-	public void setComentarios(ArrayList<Comentarios> comentarios) {
+	public void setComentarios(Set<Comentarios> comentarios) {
 		this.comentarios = comentarios;
 	}
 
-	public ArrayList<Curtidas> getCurtidas() {
+	
+
+	public Set<Curtidas> getCurtidas() {
 		return curtidas;
 	}
 
-	public void setCurtidas(ArrayList<Curtidas> curtidas) {
+	public void setCurtidas(Set<Curtidas> curtidas) {
 		this.curtidas = curtidas;
 	}
 
@@ -100,4 +93,32 @@ public class Postagens {
 		this.titulo = titulo;
 	}
 
-}
+	public Postagens() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Long getID_PO() {
+		return ID_PO;
+	}
+
+	public void setID_PO(Long iD_PO) {
+		ID_PO = iD_PO;
+	}
+
+	public Postagens(Long iD_PO, Set<Comentarios> comentarios, Set<Curtidas> curtidas, String fotos, String musicas,
+			String textos, String videos, String titulo) {
+		super();
+		ID_PO = iD_PO;
+		this.comentarios = comentarios;
+		this.curtidas = curtidas;
+		this.fotos = fotos;
+		this.musicas = musicas;
+		this.textos = textos;
+		this.videos = videos;
+		this.titulo = titulo;
+	}
+
+	}
+
+

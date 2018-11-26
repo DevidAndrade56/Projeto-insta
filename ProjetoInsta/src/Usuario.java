@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -13,28 +12,27 @@ import javax.persistence.OneToMany;
 public class Usuario {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	private String nome;
 	@ManyToMany
-	@JoinTable(name="usuario_historias",
-	joinColumns = @JoinColumn(name="id"),
-	inverseJoinColumns = @JoinColumn(name="ID_H"))
-	private ArrayList<Historia> historias;
+	@JoinTable(name = "usuario_historias", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "ID_H"))
+	private Set<Historia> historias;
 	@OneToMany
-	@JoinColumn(name="ID_PO")
+	@JoinColumn(name = "ID_PO")
 	private Set<Postagens> postagens;
 	@OneToMany
-	@JoinColumn(name="id_co")
+	@JoinColumn(name = "id_co")
 	private Set<Comentarios> comentarios;
 	@OneToMany
-	@JoinColumn(name="id_c")
+	@JoinColumn(name = "id_c")
 	private Set<Curtidas> curtidas;
 
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -46,11 +44,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public ArrayList<Historia> getHistorias() {
+
+	public Set<Historia> getHistorias() {
 		return historias;
 	}
 
-	public void setHistorias(ArrayList<Historia> historias) {
+	public void setHistorias(Set<Historia> historias) {
 		this.historias = historias;
 	}
 
@@ -78,25 +77,24 @@ public class Usuario {
 		this.curtidas = curtidas;
 	}
 
-	@SuppressWarnings("unchecked")
-	public Usuario(int id, String nome, ArrayList<Historia> historias,
-			Postagens postagens, Comentarios comentarios, Curtidas curtidas) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.historias = historias;
-		this.postagens = (Set<Postagens>) postagens;
-		this.comentarios = (Set<Comentarios>) comentarios;
-		this.curtidas = (Set<Curtidas>) curtidas;
-	}
-
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + " historias=" + historias
-				+ ", postagens=" + postagens + ", comentarios=" + comentarios + ", curtidas=" + curtidas + "]";
+		return "Usuario [id=" + id + ", nome=" + nome + " historias=" + historias + ", postagens=" + postagens
+				+ ", comentarios=" + comentarios + ", curtidas=" + curtidas + "]";
+	}
+
+	public Usuario(Long id, String nome, Set<Historia> historias, Set<Postagens> postagens,
+			Set<Comentarios> comentarios, Set<Curtidas> curtidas) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.historias = historias;
+		this.postagens = postagens;
+		this.comentarios = comentarios;
+		this.curtidas = curtidas;
 	}
 
 }

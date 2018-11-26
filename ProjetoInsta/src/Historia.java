@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 public class Historia {
 	@Id
 	@GeneratedValue
-	private int ID_H;
+	private Long ID_H;
 	private String titulo;
 	@OneToMany
 	@JoinColumn(name="id")
@@ -23,13 +23,7 @@ public class Historia {
 				+  "]";
 	}
 
-	public int getID_H() {
-		return ID_H;
-	}
 
-	public void setID_H(int iD_H) {
-		ID_H = iD_H;
-	}
 
 	public String getTitulo() {
 		return titulo;
@@ -52,6 +46,32 @@ public class Historia {
 	}
 
 	public void setRespostas(String respostas) {
+		this.respostas = respostas;
+	}
+
+
+	public Long getID_H() {
+		return ID_H;
+	}
+
+
+	public void setID_H(Long iD_H) {
+		ID_H = iD_H;
+	}
+
+
+	public Historia() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public Historia(Long iD_H, String titulo, Set<Usuario> usuario, String respostas) {
+		super();
+		ID_H = iD_H;
+		this.titulo = titulo;
+		this.usuario = usuario;
 		this.respostas = respostas;
 	}
 

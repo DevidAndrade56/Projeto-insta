@@ -4,7 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,21 +13,20 @@ import javax.persistence.Table;
 public class Curtidas {
 	@Id
 	@GeneratedValue
-	private int id_c;
-	@ManyToOne
-	@JoinColumn(name="ID_PO")
+	private Long id_c;
+	@ManyToMany
+	@JoinTable(name="postagens_usuarios",
+	joinColumns =@JoinColumn(name="id"),
+	inverseJoinColumns = @JoinColumn(name="ID_PO"))
 	private Set<Postagens> postagens;
-	@ManyToOne
-	@JoinColumn(name="id_co")
+	
+	@ManyToMany
+	@JoinTable(name="comentarios_usuarios",
+	joinColumns =@JoinColumn(name="id_co"),
+	inverseJoinColumns = @JoinColumn(name="id"))
+	
 	private Set<Comentarios> comentarios;
 
-	public int getId_c() {
-		return id_c;
-	}
-
-	public void setId_c(int id_c) {
-		this.id_c = id_c;
-	}
 
 	public Set<Postagens> getPostagens() {
 		return postagens;
@@ -44,9 +44,23 @@ public class Curtidas {
 		this.comentarios = comentarios;
 	}
 
+	public Long getId_c() {
+		return id_c;
+	}
+
+	public void setId_c(Long id_c) {
+		this.id_c = id_c;
+	}
+
 	@Override
 	public String toString() {
 		return "Curtidas [id_c=" + id_c + ", postagens=" + postagens + ", comentarios=" + comentarios + "]";
 	}
+
+	public Curtidas() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 
 }

@@ -8,18 +8,19 @@ import javax.persistence.Table;
 public class Compartilhar {
 	@Id
 	@GeneratedValue
-	private int ID_COM;
+	private Long ID_COM;
 	private String fotos;
 	private String musicas;
 	private String textos;
 	private String videos;
 	private String titulo;
 
-	public int getID_COM() {
+
+	public Long getID_COM() {
 		return ID_COM;
 	}
 
-	public void setID_COM(int iD_COM) {
+	public void setID_COM(Long iD_COM) {
 		ID_COM = iD_COM;
 	}
 
@@ -67,6 +68,23 @@ public class Compartilhar {
 	public String toString() {
 		return "Compartilhar [ID_COM=" + ID_COM + ", fotos=" + fotos + ", musicas=" + musicas + ", textos=" + textos
 				+ ", videos=" + videos + ", titulo=" + titulo + "]";
+	}
+
+	
+
+	public Compartilhar(Long iD_COM, String fotos, String musicas, String textos, String videos, String titulo) {
+		super();
+		ID_COM = iD_COM;
+		this.fotos = fotos;
+		this.musicas = musicas;
+		this.textos = textos;
+		this.videos = videos;
+		this.titulo = titulo;
+	}
+
+	public Compartilhar() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 }

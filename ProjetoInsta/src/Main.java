@@ -8,7 +8,7 @@ public class Main {
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
 		Postagens u = new Postagens();
-		u.setID_PO(1);
+		u.setID_PO(1L);
 		u.setMusicas("sdffds");
 		em.persist(u);
 		em.getTransaction().commit();
