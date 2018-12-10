@@ -9,13 +9,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Usuario {
+public class Usuario implements Identificavel {
 	@Id
 	@GeneratedValue
 	private Long id;
 	private String nome;
 	@ManyToMany
-	@JoinTable(name = "usuario_historias", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "ID_H"))
+	@JoinTable(name = "usuario_historias", joinColumns = @JoinColumn(name = "id_usu"), inverseJoinColumns = @JoinColumn(name = "id_hist"))
 	private Set<Historia> historias;
 	@OneToMany
 	@JoinColumn(name = "ID_PO")
@@ -78,7 +78,7 @@ public class Usuario {
 	}
 
 	public Usuario() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public String toString() {

@@ -4,7 +4,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Direct {
+public class Direct implements Identificavel{
 	@Id
 	@GeneratedValue
 	private Long id_dir;
@@ -36,6 +36,16 @@ public class Direct {
 		super();
 		this.id_dir = id_dir;
 		this.texto = texto;
+	}
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setId(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

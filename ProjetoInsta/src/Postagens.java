@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 @Entity
-public class Postagens {
+public class Postagens implements Identificavel{
 	@Id
 	@GeneratedValue
 	private Long ID_PO;
@@ -117,6 +117,18 @@ public class Postagens {
 		this.textos = textos;
 		this.videos = videos;
 		this.titulo = titulo;
+	}
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setId(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	}

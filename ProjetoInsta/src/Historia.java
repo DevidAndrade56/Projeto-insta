@@ -4,16 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Historia {
+public class Historia implements Identificavel{
 	@Id
 	@GeneratedValue
 	private Long ID_H;
 	private String titulo;
-	@OneToMany
-	@JoinColumn(name="id")
+	@ManyToMany(mappedBy="historias")
 	private Set<Usuario> usuario;
 	private String respostas;
 	
@@ -73,6 +73,22 @@ public class Historia {
 		this.titulo = titulo;
 		this.usuario = usuario;
 		this.respostas = respostas;
+	}
+
+
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public void setId(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

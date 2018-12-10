@@ -8,7 +8,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Comentarios {
+public class Comentarios implements Identificavel{
 	@Id
 	@GeneratedValue
 	private Long id_co;
@@ -49,6 +49,16 @@ public class Comentarios {
 	public Comentarios() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void setId(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
