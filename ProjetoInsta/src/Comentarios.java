@@ -60,7 +60,4 @@ public class Comentarios implements Identificavel{
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 }

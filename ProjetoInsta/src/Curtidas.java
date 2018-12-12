@@ -24,7 +24,6 @@ public class Curtidas implements Identificavel {
 	@JoinTable(name="comentarios_usuarios",
 	joinColumns =@JoinColumn(name="id_co"),
 	inverseJoinColumns = @JoinColumn(name="id"))
-	
 	private Set<Comentarios> comentarios;
 
 
